@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:foreground="@drawable/atw_border_image"
+    android:layout_width="150dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp"
+    android:id="@+id/newCard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="150dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="138dp"
+            android:layout_height="125dp"
+            android:orientation="vertical"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="3dp">
+
+            <ImageView
+                android:id="@+id/card_view_image_user"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="-5dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/newTagImage_user"
+                android:layout_width="44dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/new_label1" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/ratingBack"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.607"
+            app:srcCompat="@drawable/ratingrectngale" />
+
+        <ImageView
+            android:id="@+id/ratingStar"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="3dp"
+            app:layout_constraintEnd_toEndOf="@+id/ratingBack"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ratingBack"
+            app:layout_constraintTop_toTopOf="@+id/ratingBack"
+            app:srcCompat="@drawable/star" />
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="12dp"
+            android:text="4.9"
+            android:textSize="9dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/ratingBack"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ratingBack"
+            app:layout_constraintTop_toTopOf="@+id/ratingBack" />
+
+
+        <ImageButton
+            android:id="@+id/heart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.876"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.604"
+            app:srcCompat="@drawable/ic_favorite_border_24px" />
+
+        <TextView
+            android:id="@+id/card_view_name_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Product Name"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card1" />
+
+        <TextView
+            android:id="@+id/card_view_price_user"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:gravity="center"
+            android:text="Price"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_name_user"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/ViewButton_user"
+            android:layout_width="70dp"
+            android:layout_height="29dp"
+            android:background="@drawable/btn_round"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Buy"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/BuyButton_user" />
+
+        <Button
+            android:id="@+id/BuyButton_user"
+            android:layout_width="70dp"
+            android:layout_height="29dp"
+            android:background="@drawable/btn_round"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="view"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

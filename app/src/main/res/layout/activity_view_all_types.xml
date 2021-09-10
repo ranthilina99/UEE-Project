@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    tools:context=".ViewAllTypes">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/searchProduct2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/atw_border_image"
+                android:hint="Search"
+
+                android:drawableStart="@drawable/search_img"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/layerd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/searchProduct2">
+
+                <TextView
+                    android:id="@+id/searchText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searchProduct"
+                    android:text="Cakes"
+                    android:textStyle="bold"
+                    android:textSize="35dp"
+                    android:textColor="@color/red"/>
+
+
+                <TextView
+                    android:id="@+id/searchText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/searchProduct"
+                    android:text="Showing All"
+                    android:textSize="20dp"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/layerd"
+                android:id="@+id/card_recycleView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_below="@+id/card_recycleView1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_recycleView"
+                    android:layout_marginTop="17dp"
+                    android:text="Popular Products"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_recycleView"
+                    android:layout_marginTop="17dp"
+                    android:text="(within this Category)"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/image_slider1"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@+id/card_recycleView1"
+                android:layout_marginTop="41dp"
+                app:sliderAnimationDuration="600"
+                android:background="@color/gray"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="5"
+                app:sliderStartAutoCycle="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewProductView"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/searchNewProduct"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:hint="Search"
+            android:background="@drawable/atw_border_image"
+            android:drawableStart="@drawable/search_img"
+            android:padding="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/searchNewProduct"
+            android:id="@+id/card_recycleNewProductView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+</ScrollView>

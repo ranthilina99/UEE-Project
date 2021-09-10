@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">ueeversion1</string>
+    <string name="productName">Product Name</string>
+    <string name="ProductPrice">Product Price</string>
+    <string name="instock">In Stock</string>
+    <string name="outStock">Out Stock</string>
+    <string name="DeliveryArea">Delivery Area</string>
+    <string name="DeliveryDate">Delivery Date</string>
+    <string name="productDescription">Product Description</string>
+    <string name="CODAvaliable">COD Available</string>
+    <string name="CODUnavaliable">COD Unavailable</string>
+    <string name="addProduct">Add Product</string>
+    <string name="productCategory">Product Category</string>
+    <string name="view_product_details">View Product Details</string>
+    <string name="delete">delete</string>
+    <string name="update">update</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+
+
+    <string-array name="Cake_category">
+        <item>Best Cakes</item>
+        <item>Lakwimana Cakes</item>
+        <item>Birthday Cakes</item>
+        <item>Kids</item>
+        <item>Love And Romance</item>
+    </string-array>
+
+    <string-array name="flower_Category">
+        <item>Flowers</item>
+        <item>Artificial Flowers</item>
+    </string-array>
+
+    <string-array name="fruit_Category">
+        <item>Fruits</item>
+        <item>Fruit Basket</item>
+    </string-array>
+
+    <string-array name="food_Category">
+        <item>Foods</item>
+    </string-array>
+
+    <string-array name="chocolate_Category">
+        <item>Chocolates</item>
+        <item>Chocolate Packages</item>
+    </string-array>
+
+    <string-array name="electronic_Category">
+        <item>Electronics</item>
+        <item>Mobile Phones</item>
+    </string-array>
+
+    <string-array name="kids_Category">
+        <item>Kids Items</item>
+        <item>Popular Kids Items</item>
+        <item>Baby Products</item>
+        <item>Bicycles</item>
+        <item>Educational Toys</item>
+        <item>Kids Clothes</item>
+        <item>Kids Watches</item>
+        <item>Toys</item>
+    </string-array>
+
+    <string-array name="teddy_Bears_Category">
+        <item>Teddy Bears</item>
+    </string-array>
+
+    <string-array name="gift_Category">
+        <item>Gifts</item>
+        <item>Gift Baskets</item>
+        <item>Gift For Her</item>
+        <item>Gift For Him</item>
+        <item>Valentines Gifts</item>
+        <item>Personalized Gifts</item>
+        <item>Fathers Day Gifts</item>
+        <item>Mothers Day Gifts</item>
+    </string-array>
+
+    <string-array name="clothes_Category">
+        <item>--Choose--</item>
+        <item>Clothes</item>
+        <item>Baby Clothes</item>
+        <item>Bathiks</item>
+        <item>Bed Sheet</item>
+        <item>Emeraid Shirt</item>
+        <item>T-Shirt</item>
+        <item>Towels</item>
+    </string-array>
+
+    <string-array name="vegetable_Category">
+        <item>--Choose--</item>
+        <item>Vegetables</item>
+        <item>Vegetable Hampers</item>
+    </string-array>
+
+    <string-array name="bookShop_Category">
+        <item>--Choose--</item>
+        <item>Stationeries</item>
+        <item>Kids And Education Books</item>
+        <item>Novels And Translation</item>
+    </string-array>
+
+    <string-array name="jewellery_Category">
+        <item>--Choose--</item>
+        <item>Jewellery</item>
+        <item>Plumtree</item>
+        <item>Jewellery Lanka</item>
+    </string-array>
+
+    <string-array name="model_Category">
+        <item>--Choose--</item>
+        <item>Model Girl</item>
+        <item>Model Boy</item>
+    </string-array>
+
+    <string-array name="cosmetic_Category">
+        <item>--Choose--</item>
+        <item>Cosmetic</item>
+        <item>Special Gift</item>
+    </string-array>
+
+    <string-array name="pirikara_Category">
+        <item>--Choose--</item>
+        <item>Pooja Bhanda</item>
+    </string-array>
+
+    <string-array name="Music_Category">
+        <item>--Choose--</item>
+        <item>Music</item>
+        <item>Music Instrument</item>
+    </string-array>
+</resources>

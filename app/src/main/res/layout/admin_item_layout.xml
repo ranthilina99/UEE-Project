@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180sp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginRight="0dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginEnd="10dp"
+    android:background="@drawable/atw_border_image">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:layout_marginTop="15dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/txtImage"
+            android:layout_width="133dp"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtProductName"
+                    android:layout_width="166dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="532dp"
+                    android:hint="@string/productName"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice"
+                    android:layout_width="126dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductName"
+                    android:layout_marginTop="-520dp"
+                    android:hint="@string/ProductPrice"
+                    android:textSize="16sp"
+                    android:textColor="@color/red"/>
+
+                <TextView
+                    android:id="@+id/txtProductCategory"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductPrice"
+
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/productCategory"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtProductType"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductCategory"
+
+                    android:layout_marginTop="8dp"
+                    android:hint="productType"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtStock"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductCategory"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="7dp"
+                    android:hint="stock"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtAvailable"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductCategory"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="-22dp"
+                    android:hint="Available"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProductCategory"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="-53dp"
+                    android:hint="@string/DeliveryDate"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_below="@+id/txtProductPrice"
+
+                    android:layout_marginTop="64dp"
+                    android:hint="@string/productDescription"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

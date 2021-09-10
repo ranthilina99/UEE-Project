@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/db" android:title="UserCategory"/>
+    <item android:id="@+id/admin" android:title="Admin"/>
+    <item android:id="@+id/newproduct" android:title="NewProduct"/>
+    <item android:id="@+id/register" android:title="Register"/>
+    <item android:id="@+id/activities" android:title="Activities"/>
+    <item android:id="@+id/logout" android:title="Logout"/>
+    <item android:title="others">
+        <menu>
+            <item android:id="@+id/Setting1" android:title="Setting1"/>
+            <item android:id="@+id/activities1" android:title="Activities1"/>
+            <item android:id="@+id/logout1" android:title="Logout1"/>
+        </menu>
+    </item>
+</menu>
