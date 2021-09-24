@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class ProductView extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
-    private Button viewBtn;
+    private Button viewBtn,back;
     private TextView name, area, price, description, date, stock, cod,productType;
     private ImageView image1,ImageCOD,ImageInStock;
     private String productID = "",PType,ProductCategory;
@@ -84,6 +84,7 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         viewBtn=(Button) findViewById(R.id.productType_view_btn);
         productType=(TextView) findViewById(R.id.productType_view_name);
         sliderView = findViewById(R.id.image_slider_view);
+        back=(Button)findViewById(R.id.back_view_product);
         displayItemInfo();
 
 
@@ -107,7 +108,12 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.startAutoCycle();
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),UserItemView.class));
+            }
+        });
         viewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

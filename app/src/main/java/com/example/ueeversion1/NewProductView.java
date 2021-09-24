@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.ueeversion1.Model.Item;
@@ -25,6 +28,7 @@ public class NewProductView extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String NewProductName;
     private EditText search;
+    private Button back;
 
     private ArrayList<Item> productList;
     private UserViewHolder userViewHolder;
@@ -36,14 +40,19 @@ public class NewProductView extends AppCompatActivity {
         NewProductName = "new";
         getSupportActionBar().setTitle("For" +" "+ "New Product");
         itemRef = FirebaseDatabase.getInstance().getReference().child("Products");
-
+        back=findViewById(R.id.back_new_item);
         recyclerView = findViewById(R.id.card_recycleNewProductView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         search = findViewById(R.id.searchNewProduct);
 
         loadNewProductALl(NewProductName);
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -19,12 +19,13 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:orientation="horizontal">
-              <ImageButton
+              <Button
+                  android:id="@+id/back_item_button"
                   android:layout_marginTop="20dp"
-                  android:layout_width="50dp"
-                  android:layout_height="50dp"
-                  android:layout_marginLeft="20dp"
-                  android:src="@drawable/back_left"/>
+                  android:layout_width="40dp"
+                  android:layout_height="40dp"
+                  android:layout_marginLeft="10dp"
+                  android:background="@drawable/back_left"/>
 
               <ImageView
 

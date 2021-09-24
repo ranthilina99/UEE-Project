@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -42,6 +44,7 @@ public class ViewAllTypes extends AppCompatActivity {
     private ArrayList<Item> productList;
     private ArrayList<Item> productSlider;
     private ArrayList<Item> productSlider1;
+    private Button back;
 
     private UserViewHolder userViewHolder;
     private SliderViewAdapter sliderViewAdapter_new;
@@ -61,7 +64,7 @@ public class ViewAllTypes extends AppCompatActivity {
         textView=findViewById(R.id.searchText2);
         textView1=findViewById(R.id.searchText3);
         sliderView = findViewById(R.id.image_slider1);
-
+        back=findViewById(R.id.all_type_back_button);
 
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
         //sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
@@ -76,6 +79,13 @@ public class ViewAllTypes extends AppCompatActivity {
 
         textView.setText(CategoryName);
         textView1.setText(ProductType);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),UserCategory.class));
+            }
+        });
         search1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -9,12 +9,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="-50dp"
-            android:src="@drawable/back_left"/>
+
+        <Button
+            android:id="@+id/back_buy_product"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back_left" />
+
         <ImageView
             android:id="@+id/logo"
             android:layout_width="170dp"
@@ -23,43 +26,45 @@
             android:src="@drawable/store_logo"/>
         <ImageView
             android:id="@+id/favourite_circle"
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="280dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="310dp"
             android:src="@drawable/circle"/>
         <ImageView
             android:id="@+id/favourite"
-            android:layout_width="30dp"
-            android:layout_marginTop="19dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="312dp"
+            android:layout_width="25dp"
+            android:layout_marginTop="18dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="318dp"
             android:src="@drawable/favourite"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/card2"
             android:background="@drawable/atw_border_image"
             android:layout_width="match_parent"
             android:layout_below="@+id/logo"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="12dp"
             android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/product_buy_Image"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"
-            android:layout_below="@+id/logo"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:adjustViewBounds="false"
-            android:elevation="5dp"
-            android:translationZ="5dp"
-            android:contextClickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/product_buy_Image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/logo"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="false"
+                android:contextClickable="true"
+                android:elevation="5dp"
+                android:scaleType="fitXY"
+                android:translationZ="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView

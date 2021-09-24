@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class UserBuyProduct extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
-    private Button addToCart;
+    private Button back;
     private TextView name, area, price, description, date, stock, cod;
     private ImageView image1,ImageCOD,ImageInStock;
     private String productID = "";
@@ -80,14 +81,20 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         ImageInStock = (ImageView) findViewById(R.id.Image_inStock_buy);
         mainLayout=(LinearLayout)this.findViewById(R.id.ViewLayer3_buy);
         sliderView = findViewById(R.id.image_slider_buy);
+        back=(Button)findViewById(R.id.back_buy_product);
         displayItemInfo();
-
 
 //        recyclerView.setHasFixedSize(true);
 //        layoutManager= new LinearLayoutManager(this);
 //        recyclerView.setLayoutManager(layoutManager);
 //        adapter=new RecycleViewAdapter(this,categories);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),UserItemView.class));
+            }
+        });
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
         //sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);

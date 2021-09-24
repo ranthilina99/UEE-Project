@@ -7,13 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.GridView;
 
 public class UserCategory extends AppCompatActivity {
 
     private CardView flower1,cake,foods,chocolates,electronics,kidsCorner,gift,
             vouchers,teddyBears,clothes,fruits,vegetables,watches,babyProducts,
-            books,jewelery,models,cosmetics,pirikara,music;;
+            books,jewelery,models,cosmetics,pirikara,music;
+    private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +42,14 @@ public class UserCategory extends AppCompatActivity {
         cosmetics=findViewById(R.id.card_user_Cosmetics);
         pirikara=findViewById(R.id.card_user_Pirikara);
         music=findViewById(R.id.card_user_Music);
+        back=findViewById(R.id.back_new);
 
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
         flower1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

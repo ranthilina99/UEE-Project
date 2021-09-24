@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ public class UserItemView extends AppCompatActivity {
 
     private DatabaseReference itemReff;
     private RecyclerView recyclerView;
+    private Button back;
     private String CategoryName,NewProductName;
     private EditText search;
     private ImageButton button;
@@ -65,7 +68,7 @@ public class UserItemView extends AppCompatActivity {
         textView=findViewById(R.id.searchText);
         textView1=findViewById(R.id.searchText1);
         sliderView = findViewById(R.id.image_slider);
-
+        back=findViewById(R.id.back_item_button);
 
 
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
@@ -77,6 +80,13 @@ public class UserItemView extends AppCompatActivity {
         //loadAllProducts();
         loadCategorySelect(CategoryName);
         loadImageSlider(CategoryName);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),UserCategory.class));
+            }
+        });
 
         textView.setText(CategoryName);
         search.addTextChangedListener(new TextWatcher() {
