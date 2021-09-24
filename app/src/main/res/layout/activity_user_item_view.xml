@@ -14,22 +14,41 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="20dp">
+          <LinearLayout
+              android:id="@+id/layer13"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <ImageButton
+                  android:layout_marginTop="20dp"
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:layout_marginLeft="20dp"
+                  android:src="@drawable/back_left"/>
 
+              <ImageView
+
+                  android:layout_marginLeft="50dp"
+                  android:layout_width="160dp"
+                  android:layout_height="80dp"
+                  android:src="@drawable/store_logo"/>
+          </LinearLayout>
           <EditText
               android:id="@+id/searchProduct"
-              android:layout_width="match_parent"
+              android:layout_width="320dp"
               android:layout_height="50dp"
               android:layout_margin="5dp"
-              android:background="@drawable/atw_border_image"
-              android:hint="Search here...."
+              android:background="@drawable/search"
+              android:hint="Search"
+              android:layout_below="@+id/layer13"
               android:drawableStart="@drawable/search_img"
-              android:padding="10dp"/>
+              android:padding="15dp"/>
 
           <ImageButton
               android:id="@+id/filter_button"
               android:layout_width="35dp"
               android:layout_height="35dp"
-              android:layout_marginTop="13dp"
+              android:layout_marginTop="95dp"
               android:layout_alignParentEnd="true"
               android:background="@null"
               android:layout_marginRight="15dp"
@@ -37,6 +56,7 @@
               android:src="@drawable/filter" />
           <LinearLayout
               android:id="@+id/layerd"
+              android:layout_marginStart="15dp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_below="@+id/searchProduct">
@@ -73,6 +93,7 @@
           </androidx.recyclerview.widget.RecyclerView>
 
          <LinearLayout
+             android:layout_marginStart="15dp"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_below="@+id/card_recycleView"
@@ -98,7 +119,7 @@
           <com.smarteist.autoimageslider.SliderView
               android:id="@+id/image_slider"
               android:layout_width="match_parent"
-              android:layout_height="250dp"
+              android:layout_height="280dp"
               android:layout_below="@+id/card_recycleView"
               android:layout_marginTop="49dp"
               app:sliderAnimationDuration="600"

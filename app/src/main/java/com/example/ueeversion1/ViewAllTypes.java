@@ -57,7 +57,7 @@ public class ViewAllTypes extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.card_recycleView1);
         search1= findViewById(R.id.searchProduct2);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         textView=findViewById(R.id.searchText2);
         textView1=findViewById(R.id.searchText3);
         sliderView = findViewById(R.id.image_slider1);

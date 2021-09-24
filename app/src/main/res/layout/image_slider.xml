@@ -2,9 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
+    android:layout_height="270dp"
     android:layout_margin="5dp"
     android:background="@color/gray"
     app:cardCornerRadius="4dp">
@@ -14,12 +13,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="180dp"
-        android:layout_height="211dp"
+        android:layout_height="250dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="5dp"
-
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="1dp"
-        android:background="@drawable/atw_border_image"
+        android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.013"
@@ -27,41 +25,125 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/card_view_image_slider"
-            android:layout_width="0dp"
-            android:layout_margin="10dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/card_view_image_slider"
+                android:layout_width="160dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/newbackreg"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.035" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="49dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/rectangle_like"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.219"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.024" />
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.128" />
+
+            <ImageView
+                android:id="@+id/newTagImage_slider"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/new_label1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.128" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="119dp"
+            android:src="@drawable/ic_star_24px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.757"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:text="4.9"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintVertical_bias="0.008" />
 
         <TextView
             android:id="@+id/card_view_name_slider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Product Name"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/georgia"
+            android:text="Summer Flower Bucket"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.474"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_view_image_slider" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintVertical_bias="0.221" />
 
         <TextView
             android:id="@+id/card_view_price_slider"
-            android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:gravity="center"
-            android:text="Price"
-            android:textColor="@color/black"
-            android:textSize="17sp"
+            android:layout_width="118dp"
+            android:layout_height="22dp"
+            android:fontFamily="@font/lucida"
+            android:text="Rs:1500.00"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:textSize="16dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view_name_slider"
             app:layout_constraintVertical_bias="0.0" />
@@ -70,7 +152,7 @@
             android:id="@+id/HotButton_slider"
             android:layout_width="70dp"
             android:layout_height="29dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/btn_red_round"
             android:gravity="center"
             android:text="Hot"
@@ -78,22 +160,11 @@
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_view_price_slider"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/newTagImage_slider"
-            android:layout_width="44dp"
-            android:layout_height="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.919"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.058"
-            app:srcCompat="@drawable/new_label1" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="10dp"
         android:layout_height="211dp">
@@ -101,11 +172,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="175dp"
-        android:layout_height="211dp"
+        android:layout_height="250dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="1dp"
-        android:background="@drawable/atw_border_image"
+        android:background="@drawable/rectangle"        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.013"
@@ -113,42 +183,124 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/card_view_image_slider1"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_margin="10dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/card_view_name_slider1"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:background="@drawable/atw_border_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/card_view_image_slider1"                android:layout_width="160dp"
+                android:layout_height="115dp"
+                android:background="@drawable/newbackreg"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.035" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="49dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/rectangle_like"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.219"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.024" />
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.128" />
+
+            <ImageView
+                android:id="@+id/newTagImage_Slider1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/new_label1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.128" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="119dp"
+            android:src="@drawable/ic_star_24px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.757"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardView1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:text="4.9"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView1"
+            app:layout_constraintVertical_bias="0.008" />
 
         <TextView
             android:id="@+id/card_view_name_slider1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Product Name"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/georgia"
+            android:text="Summer Flower Bucket"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.474"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_view_image_slider1" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView1"
+            app:layout_constraintVertical_bias="0.221" />
 
         <TextView
             android:id="@+id/card_view_price_slider1"
-            android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:gravity="center"
-            android:text="Price"
-            android:textColor="@color/black"
-            android:textSize="17sp"
+            android:layout_width="118dp"
+            android:layout_height="22dp"
+            android:fontFamily="@font/lucida"
+            android:text="Rs:1500.00"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:textSize="16dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view_name_slider1"
             app:layout_constraintVertical_bias="0.0" />
@@ -168,19 +320,8 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view_price_slider1"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.466" />
 
-        <ImageView
-            android:id="@+id/newTagImage_Slider1"
-            android:layout_width="44dp"
-            android:layout_height="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.919"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.058"
-            app:srcCompat="@drawable/new_label1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
 

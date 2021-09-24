@@ -38,7 +38,7 @@ public class NewProductView extends AppCompatActivity {
         itemRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         recyclerView = findViewById(R.id.card_recycleNewProductView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         search = findViewById(R.id.searchNewProduct);
 

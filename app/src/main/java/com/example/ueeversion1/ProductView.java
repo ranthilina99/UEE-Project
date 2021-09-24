@@ -98,7 +98,7 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         layoutManager1= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView2.setLayoutManager(layoutManager1);
 
-        recyclerView1.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView1.setLayoutManager(new GridLayoutManager(this, 2));
         loadAllProduct();
         loadImageSlider();
 

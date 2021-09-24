@@ -75,7 +75,7 @@ public class newUserHolderImagesAll extends RecyclerView.Adapter<newUserHolderIm
 
     @Override
     public int getItemCount() {
-        return 6;
+        return 4;
     }
 
     class HolderAllProducts extends RecyclerView.ViewHolder{

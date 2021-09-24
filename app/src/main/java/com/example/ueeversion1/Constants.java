@@ -12,6 +12,8 @@ public class Constants {
     public static final String[] flowerCategory ={
             "All",
             "Flowers",
+            "Best Flowers",
+            "Flower Poem",
             "Artificial Flowers"
     };
     public static final String[] chocolateCategory ={

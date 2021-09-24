@@ -89,8 +89,8 @@ public class ImageSliderView extends RecyclerView.Adapter<ImageSliderView.Holder
             txtItemNameSlider =(TextView) itemView.findViewById(R.id.card_view_name_user);
             txtItemPriceSlider =(TextView) itemView.findViewById(R.id.card_view_price_user);
             newImage =(ImageView) itemView.findViewById(R.id.newTagImage_user);
-            btn_user_card_slider1=(Button) itemView.findViewById(R.id.BuyButton_user);
-            btn_user_card_slider2=(Button) itemView.findViewById(R.id.ViewButton_user);
+            btn_user_card_slider1=(Button) itemView.findViewById(R.id.ViewButton_user);
+            btn_user_card_slider2=(Button) itemView.findViewById(R.id.BuyButton_user);
         }
     }
 }

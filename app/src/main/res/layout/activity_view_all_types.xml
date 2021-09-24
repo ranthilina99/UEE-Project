@@ -13,21 +13,41 @@
             android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
+            <LinearLayout
+                android:id="@+id/layer13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_marginTop="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/back_left"/>
+
+                <ImageView
+
+                    android:layout_marginLeft="60dp"
+                    android:layout_width="160dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/store_logo"/>
+            </LinearLayout>
             <EditText
                 android:id="@+id/searchProduct2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/atw_border_image"
+                android:layout_margin="10dp"
+                android:background="@drawable/search"
                 android:hint="Search"
-
-                android:drawableStart="@drawable/search_img"
-                android:padding="10dp"/>
+                android:layout_below="@+id/layer13"
+            android:drawableStart="@drawable/search_img"
+                android:padding="15dp"/>
 
             <LinearLayout
                 android:id="@+id/layerd"
+                android:layout_marginStart="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/searchProduct2">
@@ -50,7 +70,7 @@
                     android:layout_below="@+id/searchProduct"
                     android:text="Showing All"
                     android:textSize="20dp"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -64,6 +84,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
+                android:layout_marginStart="15dp"
                 android:layout_below="@+id/card_recycleView1"
                 android:orientation="horizontal">
                 <TextView
@@ -86,7 +107,7 @@
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/image_slider1"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="280dp"
                 android:layout_below="@+id/card_recycleView1"
                 android:layout_marginTop="41dp"
                 app:sliderAnimationDuration="600"

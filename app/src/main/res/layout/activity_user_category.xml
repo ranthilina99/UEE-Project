@@ -13,17 +13,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <RelativeLayout
+
             android:id="@+id/layerItem1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:padding="30dp">
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="-22dp"
+                android:src="@drawable/store_logo"/>
 
             <TextView
                 android:id="@+id/hello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hello,"
+                android:layout_marginTop="35dp"
                 android:textColor="#fff"
                 android:textSize="20dp" />
 
@@ -31,7 +40,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/hello"
-                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-black"
                 android:text="RANTHILINA"
                 android:textColor="#fff"
@@ -42,6 +50,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/profile" />
 
             <TextView
@@ -51,7 +60,7 @@
                 android:text="CATEGORIES"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="102dp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@android:color/white"
                 android:textSize="34sp" />

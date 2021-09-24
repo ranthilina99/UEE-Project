@@ -28,6 +28,8 @@
 
     <string-array name="flower_Category">
         <item>Flowers</item>
+        <item>Best Flowers</item>
+        <item>Flower Poem</item>
         <item>Artificial Flowers</item>
     </string-array>
 

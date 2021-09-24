@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ueeversion1.Model.Item;
 import com.example.ueeversion1.ProductView;
 import com.example.ueeversion1.R;
+import com.example.ueeversion1.UserBuyProduct;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -71,7 +72,38 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SlideHolder> 
         if(status1.equals("old")){
             viewHolder.newImageSlider1.setVisibility(View.INVISIBLE);
         }
-
+        viewHolder.imageViewSlider1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UserBuyProduct.class);
+                intent.putExtra("pid", item.getPid());
+                context.startActivity(intent);
+            }
+        });
+        viewHolder.imageViewSlider2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UserBuyProduct.class);
+                intent.putExtra("pid", item.getPid());
+                context.startActivity(intent);
+            }
+        });
+        viewHolder.btn_Slider_card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UserBuyProduct.class);
+                intent.putExtra("pid", item.getPid());
+                context.startActivity(intent);
+            }
+        });
+        viewHolder.btn_Slider_card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UserBuyProduct.class);
+                intent.putExtra("pid", item.getPid());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

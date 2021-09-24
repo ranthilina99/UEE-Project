@@ -60,7 +60,7 @@ public class UserItemView extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.card_recycleView);
         search = findViewById(R.id.searchProduct);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         button = findViewById(R.id.filter_button);
         textView=findViewById(R.id.searchText);
         textView1=findViewById(R.id.searchText1);
