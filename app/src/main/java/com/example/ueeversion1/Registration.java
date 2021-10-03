@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Register extends AppCompatActivity {
+public class Registration extends AppCompatActivity {
     EditText firstName, lastName, password, retypePassword, Email, mobile;
     Button createAccount;
     boolean valid = true;
@@ -35,7 +36,7 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_registration);
 
         getSupportActionBar().setTitle("Register");
         //DatabaseTools-----------------------------------
@@ -149,7 +150,7 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             FirebaseUser user = fAuth.getCurrentUser();
-                            Toast.makeText(Register.this, "Account Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Registration.this, "Account Created", Toast.LENGTH_SHORT).show();
                             DocumentReference df = fStory.collection("Users").document(user.getUid());
                             Map<String, Object> userInfo = new HashMap<>();
                             userInfo.put("FirstName", firstName.getText().toString());
@@ -161,18 +162,27 @@ public class Register extends AppCompatActivity {
 
                             userInfo.put("isUser", "1");
                             df.set(userInfo);
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
                             finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Register.this, "Failed to Create Account", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registration.this, "Failed to Create Account", Toast.LENGTH_LONG).show();
                         }
                     });
                 }
             }
         });
+
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
+
     }
 
     //-----------------------------------------------validation-------------------------------------------------------------------------
@@ -294,5 +304,7 @@ public class Register extends AppCompatActivity {
 
         return valid;
     }
+
+
 
 }

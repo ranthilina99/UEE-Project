@@ -9,13 +9,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ueeversion1">
-        <activity android:name=".Register"></activity>
+        <activity
+            android:name=".AdminUserList"
+            android:exported="true" />
+        <activity
+            android:name=".AdminPanels"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".ChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateProfile"
+            android:exported="true" />
+        <activity
+            android:name=".Changeprofile"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Registration" />
         <activity android:name=".ViewAllTypes" />
         <activity android:name=".UserBuyProduct" />
         <activity android:name=".NewProductView" />
         <activity android:name=".AdminViewCategory" />
-        <activity android:name=".UserCategory"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".UserCategory"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".ProductView" />
         <activity android:name=".UserItemView" />
         <activity android:name=".AdminMaintainItem" />
@@ -23,13 +51,7 @@
         <activity android:name=".AddProduct" />
         <activity android:name=".AdminCategory" />
         <activity android:name=".Admin" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

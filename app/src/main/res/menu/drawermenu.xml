@@ -21,6 +21,10 @@
         android:title="Wishlist"
         android:icon="@drawable/wishlist"/>
     <item
+        android:id="@+id/Setting1"
+        android:title="Setting"
+        android:icon="@drawable/setting"/>
+    <item
         android:id="@+id/logout"
         android:title="Logout"
         android:icon="@drawable/logout"/>

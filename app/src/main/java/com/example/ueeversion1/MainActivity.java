@@ -8,13 +8,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     Button btn,btn1,btn3,btn4;
@@ -60,9 +61,29 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.register:
-                        startActivity(new Intent(getApplicationContext(), Register.class));
+                        startActivity(new Intent(getApplicationContext(), Registration.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+
+                    case R.id.Setting1:
+                        startActivity(new Intent(getApplicationContext(), Changeprofile.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.logout:
+
+                        SharedPreferences preferences=getSharedPreferences("Checkbox",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=preferences.edit();
+                        editor.putString("remember","false");
+                        editor.apply();
+
+                        Toast.makeText(MainActivity.this, "Thank You Come Again Log Out...", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                        finish();
+
+                        break;
+
                     default:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -99,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 //        btn4.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent=new Intent(getApplicationContext(),Register.class);
+//                Intent intent=new Intent(getApplicationContext(),Registration.class);
 //                startActivity(intent);
 //            }
 //        });
