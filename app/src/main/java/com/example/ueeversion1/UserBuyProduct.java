@@ -15,12 +15,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ueeversion1.Model.Item;
 import com.example.ueeversion1.ViewHolder.ImageSliderView;
 import com.example.ueeversion1.ViewHolder.RecycleViewAdapter;
 import com.example.ueeversion1.ViewHolder.SliderAdapter;
 import com.example.ueeversion1.ViewHolder.newUserHolderImagesAll;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,13 +34,16 @@ import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 
 public class UserBuyProduct extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     private Button back;
-    private TextView name, area, price, description, date, stock, cod;
+    private TextView name, area, price, description, date, stock, cod,qty;
     private ImageView image1,ImageCOD,ImageInStock;
     private String productID = "";
     private DatabaseReference itemRef,itemReff,itemReff1;
@@ -54,6 +60,13 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
     private SliderViewAdapter sliderViewAdapter_buy;
     private ArrayList<Item> productSlider_buy;
     private ArrayList<Item> productSlider1_buy;
+
+    private ImageView add,remove;
+    private Button addCart;
+    int totQty = 1;
+    int totalPrice = 0;
+    int i;
+    String pp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +95,44 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         mainLayout=(LinearLayout)this.findViewById(R.id.ViewLayer3_buy);
         sliderView = findViewById(R.id.image_slider_buy);
         back=(Button)findViewById(R.id.back_buy_product);
+        addCart=findViewById(R.id.pd_add_to_cart);
         displayItemInfo();
+
+        add = findViewById(R.id.addItem);
+        remove = findViewById(R.id.removeItem);
+        qty = findViewById(R.id.qty);
+
+        //Change qty
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (totQty < 10){
+                    totQty++;
+                    qty.setText(String.valueOf(totQty));
+
+                }
+
+            }
+        });
+
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (totQty < 10){
+                    totQty--;
+                    qty.setText(String.valueOf(totQty));
+                }
+
+            }
+        });
+
+        addCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addingToCartList();
+            }
+        });
+
 
 //        recyclerView.setHasFixedSize(true);
 //        layoutManager= new LinearLayoutManager(this);
@@ -109,6 +159,98 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         recyclerView1.setLayoutManager(new GridLayoutManager(this, 2));
         loadAllProduct();
         loadImageSlider();
+    }
+
+    private void addingToCartList() {
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()){
+                    String IName = dataSnapshot.child("ProductName").getValue().toString();
+                    String Iimage = dataSnapshot.child("image").getValue().toString();
+                    String Iprice = dataSnapshot.child("price").getValue().toString();
+
+                    DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+                    int oneItemTotalPrice=((Integer.valueOf(Iprice)));
+                    int tottot = oneItemTotalPrice * totQty;
+
+//                    String tem1 = String.valueOf(totQty);
+//                    String tem2 = String.valueOf(tottot);
+
+
+                    //get values related to that ID
+                    itemRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            if (dataSnapshot.exists()){
+                                Item item = dataSnapshot.getValue(Item.class);
+
+                                String saveCurrentTime, saveCurrentDate;
+
+                                Calendar calForDate = Calendar.getInstance();
+                                SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                                saveCurrentDate = currentDate.format(calForDate.getTime());
+
+                                Calendar calForTime = Calendar.getInstance();
+                                SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+                                saveCurrentTime = currentTime.format(calForTime.getTime());
+
+                                //create ref in db
+                                final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
+                                //Put details in the Map
+                                final HashMap<String,Object> cartMap = new HashMap<>();
+
+
+
+                                cartMap.put("pid",productID);
+                                cartMap.put("pname",name.getText().toString());
+                                cartMap.put("price",price.getText().toString());
+                                cartMap.put("pdate",saveCurrentDate);
+                                cartMap.put("ptime",saveCurrentTime);
+                                cartMap.put("pquantity",totQty);
+                                cartMap.put("pimage",Iimage);
+                                cartMap.put("totPrice",tottot);
+
+
+                                cartListRef.child("User View").child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(UserBuyProduct.this, "Added to Cart!.", Toast.LENGTH_SHORT).show();
+
+//                                Intent intent = new Intent(ProductDetailsActivity.this, HomeActivity.class);
+//                                startActivity(intent);
+                                        }
+                                    }
+                                });
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
 

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ueeversion1.Model.Item;
 import com.example.ueeversion1.ViewHolder.ImageSliderView;
@@ -22,6 +23,8 @@ import com.example.ueeversion1.ViewHolder.RecycleViewAdapter;
 import com.example.ueeversion1.ViewHolder.SliderAdapter;
 import com.example.ueeversion1.ViewHolder.UserViewHolder;
 import com.example.ueeversion1.ViewHolder.newUserHolderImagesAll;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,14 +35,17 @@ import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 
 public class ProductView extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     private Button viewBtn,back;
     private TextView name, area, price, description, date, stock, cod,productType;
-    private ImageView image1,ImageCOD,ImageInStock;
+    private ImageView image1,ImageCOD,ImageInStock,fav;
     private String productID = "",PType,ProductCategory;
     private DatabaseReference itemRef,itemReff,itemReff1;
     private RecyclerView recyclerView,recyclerView1,recyclerView2;
@@ -85,7 +91,16 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         productType=(TextView) findViewById(R.id.productType_view_name);
         sliderView = findViewById(R.id.image_slider_view);
         back=(Button)findViewById(R.id.back_view_product);
+        fav = (ImageView) findViewById(R.id.fav);
         displayItemInfo();
+
+        //Wish List
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addingToWishList();
+            }
+        });
 
 
 //        recyclerView.setHasFixedSize(true);
@@ -111,7 +126,7 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),UserItemView.class));
+                startActivity(new Intent(getApplicationContext(),UserCategory.class));
             }
         });
         viewBtn.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +136,80 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
                 intent.putExtra("pType", PType);
                 intent.putExtra("Category", ProductCategory);
                 startActivity(intent);
+            }
+        });
+
+    }
+
+    private void addingToWishList() {
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()){
+                    String IName = dataSnapshot.child("ProductName").getValue().toString();
+                    String Iimage = dataSnapshot.child("image").getValue().toString();
+                    String Iprice = dataSnapshot.child("price").getValue().toString();
+
+
+                    //get values related to that ID
+                    itemRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            if (dataSnapshot.exists()){
+                                Item item = dataSnapshot.getValue(Item.class);
+
+                                String saveCurrentTime, saveCurrentDate;
+
+                                Calendar calForDate = Calendar.getInstance();
+                                SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                                saveCurrentDate = currentDate.format(calForDate.getTime());
+
+                                Calendar calForTime = Calendar.getInstance();
+                                SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+                                saveCurrentTime = currentTime.format(calForTime.getTime());
+
+                                //create ref in db
+                                final DatabaseReference wishListRef = FirebaseDatabase.getInstance().getReference().child("Wish List");
+
+                                //Put details in the Map
+                                final HashMap<String,Object> wishMap = new HashMap<>();
+
+                                wishMap.put("pid",productID);
+                                wishMap.put("pname",name.getText().toString());
+                                wishMap.put("price",price.getText().toString());
+                                wishMap.put("pdate",saveCurrentDate);
+                                wishMap.put("ptime",saveCurrentTime);
+                                wishMap.put("pimage",Iimage);
+
+                                wishListRef.child("User View").child("Products").child(productID).updateChildren(wishMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(ProductView.this, "Added to Wish List!.", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                });
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
@@ -238,7 +327,7 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
             }
         });
     }
-//    private void CategoryReceptions(String ProductName) {
+    //    private void CategoryReceptions(String ProductName) {
 //        categories=new ArrayList<>();
 //        itemReff.addValueEventListener(new ValueEventListener() {
 //            @Override
@@ -267,13 +356,13 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds:snapshot.getChildren()){
-                        Item item=ds.getValue(Item.class);
-                        Collections.shuffle(productSlider_view);
+                    Item item=ds.getValue(Item.class);
+                    Collections.shuffle(productSlider_view);
                     productSlider_view.add(item);
-                        if(!productSlider_view.equals(productSlider1_view)){
-                            Collections.shuffle(productSlider1_view);
-                            productSlider1_view.add(item);
-                        }
+                    if(!productSlider_view.equals(productSlider1_view)){
+                        Collections.shuffle(productSlider1_view);
+                        productSlider1_view.add(item);
+                    }
                 }
                 sliderViewAdapter_view=new SliderAdapter(ProductView.this,productSlider_view,productSlider1_view);
                 sliderView.setSliderAdapter(sliderViewAdapter_view);

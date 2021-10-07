@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ueeversion1">
         <activity
+            android:name=".WishListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="true" />
+        <activity
             android:name=".AdminUserList"
             android:exported="true" />
         <activity
@@ -51,7 +57,7 @@
         <activity android:name=".AddProduct" />
         <activity android:name=".AdminCategory" />
         <activity android:name=".Admin" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
