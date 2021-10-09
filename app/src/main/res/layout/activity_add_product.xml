@@ -54,7 +54,7 @@
             android:padding="14dp"
             android:textSize="14dp" />
 
-        <com.cottacush.android.currencyedittext.CurrencyEditText
+        <EditText
             android:id="@+id/Product_Price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -224,8 +224,7 @@
             android:layout_marginTop="18dp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:background="@drawable/btn_round"
-            android:text="@string/addProduct" />
+            android:background="@drawable/add_product" />
 
         <TextView
             android:layout_width="301dp"

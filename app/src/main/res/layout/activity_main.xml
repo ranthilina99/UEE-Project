@@ -6,6 +6,127 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/home_layer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/store_logo"
+                    android:textSize="20dp"
+                    android:text="style"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/newbg"
+                    android:textSize="20dp"
+                    android:scaleType="center"
+                    android:text="style"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/home_recycleView"
+                    android:layout_margin="20dp"
+                    android:layout_below="@+id/home_layer"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flower"
+                        android:textStyle="bold"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SEE ALL"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:id="@+id/seeAll1"
+                        android:layout_marginLeft="190dp"
+                        android:textColor="@color/red"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/home_recycleView_flower"
+                    android:layout_margin="20dp"
+                    android:layout_below="@+id/home_layer"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cakes"
+                        android:textStyle="bold"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SEE ALL"
+                        android:id="@+id/seeAll2"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="190dp"
+                        android:textColor="@color/red"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/home_recycleView_cake"
+                    android:layout_margin="20dp"
+                    android:layout_below="@+id/home_layer"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teddy Bears"
+                        android:textStyle="bold"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SEE ALL"
+                        android:textStyle="bold"
+                        android:id="@+id/seeAll3"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="120dp"
+                        android:textColor="@color/red"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/home_recycleView_teadyBears"
+                    android:layout_margin="20dp"
+                    android:layout_below="@+id/home_layer"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         app:headerLayout="@layout/header"
         android:id="@+id/navMenu"

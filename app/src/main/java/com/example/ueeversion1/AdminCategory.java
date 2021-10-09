@@ -41,13 +41,6 @@ public class AdminCategory extends AppCompatActivity {
         pirikara=findViewById(R.id.img_pirikara);
         music=findViewById(R.id.img_music);
 
-        AdminViewProduct = findViewById(R.id.btnAdminViewProducts);
-        AdminViewProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),AdminViewCategory.class));
-            }
-        });
 
         flower.setOnClickListener(new View.OnClickListener() {
             @Override

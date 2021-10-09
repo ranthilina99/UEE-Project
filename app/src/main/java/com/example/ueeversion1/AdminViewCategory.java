@@ -1,6 +1,7 @@
 package com.example.ueeversion1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,36 +9,35 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class AdminViewCategory extends AppCompatActivity {
-    private ImageView flower,foods,cakes,chocolates,electronics,kidsCorner,gift,
+    private CardView flower,foods,cakes,chocolates,electronics,kidsCorner,gift,
             vouchers,teddyBears,clothes,fruits,vegetables,watches,babyProducts,
             books,jewelery,models,cosmetics,pirikara,music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_category);
+        getSupportActionBar().setTitle("Admin View Products");
 
-        getSupportActionBar().setTitle("Admin View Category");
-
-        flower=findViewById(R.id.img_flower1);
-        foods=findViewById(R.id.img_food1);
-        cakes=findViewById(R.id.img_cake1);
-        chocolates=findViewById(R.id.img_chocolate1);
-        electronics=findViewById(R.id.img_electronic1);
-        kidsCorner=findViewById(R.id.img_kids1);
-        gift=findViewById(R.id.img_gift1);
-        vouchers=findViewById(R.id.img_vouchers1);
-        teddyBears=findViewById(R.id.img_teddy1);
-        clothes=findViewById(R.id.img_clothes1);
-        fruits=findViewById(R.id.img_fruit1);
-        vegetables=findViewById(R.id.img_vegetable1);
-        watches=findViewById(R.id.img_watch1);
-        babyProducts=findViewById(R.id.img_baby1);
-        books=findViewById(R.id.img_books1);
-        jewelery=findViewById(R.id.img_jewellery1);
-        cosmetics=findViewById(R.id.img_cosmetics1);
-        models=findViewById(R.id.img_model1);
-        pirikara=findViewById(R.id.img_pirikara1);
-        music=findViewById(R.id.img_music1);
+        flower=findViewById(R.id.img_flower_admin_new);
+        foods=findViewById(R.id.img_food_admin);
+        cakes=findViewById(R.id.img_cake_admin);
+        chocolates=findViewById(R.id.img_chocolate_admin);
+        electronics=findViewById(R.id.img_electronic_admin);
+        kidsCorner=findViewById(R.id.img_kids_admin);
+        gift=findViewById(R.id.img_gift_admin);
+        vouchers=findViewById(R.id.img_vouchers_admin);
+        teddyBears=findViewById(R.id.img_teddy_admin);
+        clothes=findViewById(R.id.img_clothes_admin);
+        fruits=findViewById(R.id.img_fruit_admin);
+        vegetables=findViewById(R.id.img_vegetable_admin);
+        watches=findViewById(R.id.img_watch_admin);
+        babyProducts=findViewById(R.id.img_baby_admin);
+        books=findViewById(R.id.img_books_admin);
+        jewelery=findViewById(R.id.img_jewellery_admin);
+        cosmetics=findViewById(R.id.img_cosmetics_admin);
+        models=findViewById(R.id.img_model_admin);
+        pirikara=findViewById(R.id.img_pirikara_admin);
+        music=findViewById(R.id.img_music_admin);
 
         flower.setOnClickListener(new View.OnClickListener() {
             @Override
