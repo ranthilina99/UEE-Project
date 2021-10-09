@@ -45,7 +45,7 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
     FirebaseFirestore FStore;
     FirebaseUser user;
     boolean valid = true;
-    private ImageView profilePic;
+    private ImageView profilePic,btnUpdateProfileBack;
     public Uri imageUri;
     private StorageReference storageReference;
 
@@ -68,6 +68,7 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         profilePic = findViewById(R.id.profile_image);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+        btnUpdateProfileBack=findViewById(R.id.btnUpdateProfileBack);
 
         Intent i = getIntent();
         f1 = i.getStringExtra("firstName");
@@ -91,15 +92,7 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        //Add profile picture too current user
-        StorageReference riversRef = storageReference.child("users/"+FAuth.getCurrentUser().getUid()+"/profile.jpg");
 
-        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profilePic);
-            }
-        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +131,21 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
                         Toast.makeText(UpdateProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+        //Add profile picture too current user
+        StorageReference riversRef = storageReference.child("users/"+FAuth.getCurrentUser().getUid()+"/profile.jpg");
+        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profilePic);
+            }
+        });
+
+        btnUpdateProfileBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Changeprofile.class));
             }
         });
 

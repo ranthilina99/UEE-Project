@@ -53,19 +53,15 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.admin:
-                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                        startActivity(new Intent(getApplicationContext(), Admin.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.newproduct:
                         startActivity(new Intent(getApplicationContext(), NewProductView.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.register:
-                        startActivity(new Intent(getApplicationContext(), Registration.class));
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case R.id.activities:
-                        startActivity(new Intent(getApplicationContext(), WishListActivity.class));
+                    case R.id.userCategory:
+                        startActivity(new Intent(getApplicationContext(), UserCategory.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 

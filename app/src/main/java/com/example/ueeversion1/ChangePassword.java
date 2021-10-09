@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -13,6 +14,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ import java.util.Map;
 public class ChangePassword extends AppCompatActivity {
     //Intialize objects------------------------------
     Button btn;
+    ImageView changePasswordBack;
     EditText oldPassword, NewPassword, comPassword;
     FirebaseAuth FAuth;
     TextView show, s2, s3;
@@ -54,6 +57,7 @@ public class ChangePassword extends AppCompatActivity {
         oldPassword = findViewById(R.id.txtoldpassword);
         NewPassword = findViewById(R.id.txtnewpassowrd);
         comPassword = findViewById(R.id.txtnewpassowrd2);
+        changePasswordBack=findViewById(R.id.btnChangePasswordBack);
 
         //Show and hide textViews----------------------
         show = findViewById(R.id.show1);
@@ -206,7 +210,18 @@ public class ChangePassword extends AppCompatActivity {
                 updatePassword(oldPa, newPa);
             }
         });
+
+        changePasswordBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Changeprofile.class));
+            }
+        });
+
+
+
     }
+
 
     //update password-----------------------------------------------------
     private void updatePassword(String oldPa, final String newPa) {

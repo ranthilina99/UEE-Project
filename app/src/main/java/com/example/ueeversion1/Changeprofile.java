@@ -32,6 +32,7 @@ public class Changeprofile extends AppCompatActivity {
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    ImageView btnChangeProfileBack;
 
     @SuppressLint({"WrongConstant", "RestrictedApi"})
     @Override
@@ -49,6 +50,7 @@ public class Changeprofile extends AppCompatActivity {
         Email = findViewById(R.id.lblemail);
         Mobile = findViewById(R.id.lblmobile);
         profilePic=findViewById(R.id.profile_image);
+        btnChangeProfileBack=findViewById(R.id.btnChangeProfileBack);
 
         change = findViewById(R.id.btnedit);
         can = findViewById(R.id.btncancel);
@@ -118,6 +120,15 @@ public class Changeprofile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),ChangePassword.class));
+            }
+        });
+
+
+        btnChangeProfileBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
     }

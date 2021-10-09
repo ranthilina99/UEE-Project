@@ -1,14 +1,32 @@
 package com.example.ueeversion1;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
+
 
 public class UserCategory extends AppCompatActivity {
 
@@ -16,6 +34,13 @@ public class UserCategory extends AppCompatActivity {
             vouchers,teddyBears,clothes,fruits,vegetables,watches,babyProducts,
             books,jewelery,models,cosmetics,pirikara,music;
     private Button back;
+    ImageView userProfileCategory;
+    FirebaseAuth FAuth;
+    FirebaseFirestore FStore;
+    FirebaseUser user;
+    private StorageReference storageReference;
+    private TextView firstName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +68,37 @@ public class UserCategory extends AppCompatActivity {
         pirikara=findViewById(R.id.card_user_Pirikara);
         music=findViewById(R.id.card_user_Music);
         back=findViewById(R.id.back_new);
+        userProfileCategory=findViewById(R.id.userProfileCategory);
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        firstName=findViewById(R.id.userCategoryName);
+
+
+        FAuth = FirebaseAuth.getInstance();
+        FStore = FirebaseFirestore.getInstance();
+        user = FAuth.getCurrentUser();
+        String userIds;
+        userIds = FAuth.getCurrentUser().getUid();
+        final DocumentReference documentReference = FStore.collection("Users").document(userIds);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                firstName.setText(value.getString("FirstName"));
+
+            }
+        });
+
+
+        //Add profile picture too current user
+        StorageReference riversRef = storageReference.child("users/"+FAuth.getCurrentUser().getUid()+"/profile.jpg");
+        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(userProfileCategory);
+            }
+        });
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +241,7 @@ public class UserCategory extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 }

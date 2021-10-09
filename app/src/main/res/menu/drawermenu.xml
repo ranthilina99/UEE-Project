@@ -13,7 +13,7 @@
         android:title="New Product"
         android:icon="@drawable/newproduct"/>
     <item
-        android:id="@+id/register"
+        android:id="@+id/userCategory"
         android:title="Category"
         android:icon="@drawable/menu"/>
     <item
