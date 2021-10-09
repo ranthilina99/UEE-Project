@@ -188,9 +188,68 @@
                 android:layout_marginLeft="10dp"
                 android:textSize="15dp" />
         </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layer55"
+            android:layout_below="@id/layer4"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical">
+
+            <!--              <TextView-->
+            <!--                  android:id="@+id/product_date"-->
+            <!--                  android:layout_width="wrap_content"-->
+            <!--                  android:layout_height="wrap_content"-->
+            <!--                  android:text="Delivery Date:"-->
+            <!--                  android:textSize="15dp"-->
+            <!--                  android:textColor="@color/black"/>-->
+            <!--              <TextView-->
+            <!--                  android:id="@+id/product_view_date"-->
+            <!--                  android:layout_width="wrap_content"-->
+            <!--                  android:layout_height="wrap_content"-->
+            <!--                  android:text="ee"-->
+            <!--                  android:textColor="@color/black"-->
+            <!--                  android:layout_marginLeft="10dp"-->
+            <!--                  android:textSize="15dp" />-->
+            <!--              -->
+
+
+            <ImageView
+                android:id="@+id/addItem"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/ic_baseline_add_circle_24" />
+
+            <TextView
+                android:id="@+id/qty"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="-40dp"
+                android:text="1"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/removeItem"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/ic_baseline_indeterminate_check_box_24" />
+
+
+
+        </LinearLayout>
+
+
+
         <LinearLayout
             android:id="@+id/layer15"
-            android:layout_below="@+id/layer4"
+            android:layout_below="@+id/layer55"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
@@ -277,7 +336,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/product_buy_button_user"
+                android:id="@+id/pd_add_to_cart"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_below="@+id/product_view_price"
