@@ -232,26 +232,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="5dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+<!--                <RatingBar-->
+<!--                    android:id="@+id/rating"-->
+<!--                    style="@android:attr/ratingBarStyleSmall"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:isIndicator="true"-->
+<!--                    android:max="5"-->
+<!--                    android:progressTint="@color/red"-->
+<!--                    android:scaleX=".5"-->
+<!--                    android:scaleY=".5"-->
+<!--                    android:transformPivotX="0dp"-->
+<!--                    android:transformPivotY="0dp" />-->
+
                 <RatingBar
                     android:id="@+id/rating"
-                    style="@android:attr/ratingBarStyleSmall"
+                    style="?android:attr/ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:scaleX=".5"
-                    android:scaleY=".5"
-                    android:progressTint="@color/red"
-                    android:transformPivotX="0dp"
-                    android:transformPivotY="0dp"
-                    android:isIndicator="true"
-                    android:max="5"  />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/yas_person_name"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="5dp"
+                    android:clickable="false"
+                    android:progressTint="#FF5722" />
 
                 <TextView
+                    android:id="@+id/rating_text_view"
                     android:layout_width="50dp"
                     android:layout_height="30dp"
                     android:textStyle="bold"
                     android:textColor="@color/red"
-                    android:text="4.9"
+                    android:layout_marginTop="8dp"
+                    android:text=""
                     android:textSize="25sp"
                     android:layout_marginStart="30dp"/>
 

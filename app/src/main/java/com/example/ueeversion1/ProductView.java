@@ -9,15 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ueeversion1.Model.Item;
+import com.example.ueeversion1.Model.Review;
+import com.example.ueeversion1.Review.ShowReview;
 import com.example.ueeversion1.ViewHolder.ImageSliderView;
 import com.example.ueeversion1.ViewHolder.RecycleViewAdapter;
 import com.example.ueeversion1.ViewHolder.SliderAdapter;
@@ -29,6 +33,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderView;
@@ -44,10 +49,10 @@ import java.util.Random;
 
 public class ProductView extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     private Button viewBtn,back;
-    private TextView name, area, price, description, date, stock, cod,productType;
+    private TextView name, area, price, description, date, stock, cod,productType,ratingText;
     private ImageView image1,ImageCOD,ImageInStock,fav;
     private String productID = "",PType,ProductCategory;
-    private DatabaseReference itemRef,itemReff,itemReff1;
+    private DatabaseReference itemRef,itemReff,itemReff1,dbRef;
     private RecyclerView recyclerView,recyclerView1,recyclerView2;
     private RecyclerView.LayoutManager layoutManager,layoutManager1;
     private LinearLayout mainLayout;
@@ -61,6 +66,10 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
     private SliderViewAdapter sliderViewAdapter_view;
     private ArrayList<Item> productSlider_view;
     private ArrayList<Item> productSlider1_view;
+
+    private RatingBar rating;
+    private float count,total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +101,43 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         sliderView = findViewById(R.id.image_slider_view);
         back=(Button)findViewById(R.id.back_view_product);
         fav = (ImageView) findViewById(R.id.fav);
+
+        /////////////////
+        rating = findViewById(R.id.rating);
+        ratingText = findViewById(R.id.rating_text_view);
+
+        rating.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    goToReview();
+                }
+                return true;
+            }
+        });
+
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        Query showQuery = dbRef.child("Review").orderByChild("productID").equalTo(productID);
+
+        showQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot showSnapshot : dataSnapshot.getChildren()) {
+
+                    float temp= Float.parseFloat(showSnapshot.child("rating").getValue().toString());
+                    Rate(temp);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        //////////////////
+
         displayItemInfo();
 
         //Wish List
@@ -139,6 +185,26 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
             }
         });
 
+    }
+
+    private void goToReview(){
+        Intent intentReview = new Intent(this,ShowReview.class);
+        intentReview.putExtra("pID",productID);
+        startActivity(intentReview);
+    }
+
+    public void Rate(float tot) {
+
+
+        count += 1;
+        total += tot;
+
+        if(count == 0){
+            count = 1;
+        }
+
+        rating.setRating(total/count);
+        ratingText.setText(( (total/count)) + ".0");
     }
 
     private void addingToWishList() {

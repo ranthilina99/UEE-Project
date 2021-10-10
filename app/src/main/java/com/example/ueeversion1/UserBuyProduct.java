@@ -9,15 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ueeversion1.Model.Item;
+import com.example.ueeversion1.Review.ShowReview;
 import com.example.ueeversion1.ViewHolder.ImageSliderView;
 import com.example.ueeversion1.ViewHolder.RecycleViewAdapter;
 import com.example.ueeversion1.ViewHolder.SliderAdapter;
@@ -28,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderView;
@@ -43,10 +47,10 @@ import java.util.Random;
 
 public class UserBuyProduct extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     private Button back;
-    private TextView name, area, price, description, date, stock, cod,qty;
+    private TextView name, area, price, description, date, stock, cod,qty,ratingText;
     private ImageView image1,ImageCOD,ImageInStock;
     private String productID = "";
-    private DatabaseReference itemRef,itemReff,itemReff1;
+    private DatabaseReference itemRef,itemReff,itemReff1,dbRef;
     private RecyclerView recyclerView,recyclerView1,recyclerView2;
     private RecyclerView.LayoutManager layoutManager1;
     private LinearLayout mainLayout;
@@ -67,6 +71,10 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
     int totalPrice = 0;
     int i;
     String pp;
+
+
+    private RatingBar rating;
+    private float count,total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +109,41 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         add = findViewById(R.id.addItem);
         remove = findViewById(R.id.removeItem);
         qty = findViewById(R.id.qty);
+
+        /////////////////
+        rating = findViewById(R.id.rating_buy);
+        ratingText = findViewById(R.id.rating_text_buy);
+
+        rating.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    goToReview();
+                }
+                return true;
+            }
+        });
+
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        Query showQuery = dbRef.child("Review").orderByChild("productID").equalTo(productID);
+
+        showQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot showSnapshot : dataSnapshot.getChildren()) {
+
+                    float temp= Float.parseFloat(showSnapshot.child("rating").getValue().toString());
+                    Rate(temp);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //Change qty
         add.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +202,26 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         recyclerView1.setLayoutManager(new GridLayoutManager(this, 2));
         loadAllProduct();
         loadImageSlider();
+    }
+
+    private void goToReview(){
+        Intent intentReview = new Intent(this, ShowReview.class);
+        intentReview.putExtra("pID",productID);
+        startActivity(intentReview);
+    }
+
+    public void Rate(float tot) {
+
+
+        count += 1;
+        total += tot;
+
+        if(count == 0){
+            count = 1;
+        }
+
+        rating.setRating(total/count);
+        ratingText.setText(( (total/count)) + ".0");
     }
 
     private void addingToCartList() {
