@@ -116,7 +116,9 @@ public class ReviewPopupAdd extends AppCompatActivity implements View.OnClickLis
                 dbRef.push().setValue(review);
                 Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(),ProductView.class);
+                intent.putExtra("pid",pID);
+                startActivity(intent);
 
 
             }

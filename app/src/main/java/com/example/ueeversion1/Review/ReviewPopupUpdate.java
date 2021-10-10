@@ -149,7 +149,9 @@ public class ReviewPopupUpdate extends AppCompatActivity implements View.OnClick
                         deleteSnapshot.getRef().removeValue();
                         Toast.makeText(getApplicationContext(), "Successfully Removed", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(getApplicationContext(), ProductView.class));
+                        Intent intent = new Intent(getApplicationContext(),ProductView.class);
+                        intent.putExtra("pid",pID);
+                        startActivity(intent);
                     }
                 }
             }
