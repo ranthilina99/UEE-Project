@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class WishListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
 
+        getSupportActionBar().setTitle("Wish List");
         recyclerView = findViewById(R.id.wish_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -46,9 +48,17 @@ public class WishListActivity extends AppCompatActivity {
 
         close_wish = findViewById(R.id.close_wish);
 
-        homeNavBtn = (Button) findViewById(R.id.back_home_btn);
+        homeNavBtn = findViewById(R.id.back_home_btn);
 
         wishImage = (ImageView) findViewById(R.id.wish_product_image);
+
+        homeNavBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WishListActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -80,7 +90,17 @@ public class WishListActivity extends AppCompatActivity {
                         //load image
                         Picasso.get().load(Iimage).into(holder.wishImage);
 
-
+                        //////
+                        //goto pro
+                        holder.wishTo.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(WishListActivity.this, UserBuyProduct.class);
+                                intent.putExtra("pid",model.getPid());
+                                startActivity(intent);
+                            }
+                        });
+                        //////
 
 
                         //Remove wishlist item

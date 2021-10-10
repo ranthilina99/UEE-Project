@@ -65,16 +65,21 @@
         <activity android:name=".ViewAllTypes" />
         <activity android:name=".UserBuyProduct" />
         <activity android:name=".NewProductView" />
-        <activity android:name=".AdminViewCategory" />
+        <activity android:name=".AdminViewCategory"
+            android:parentActivityName=".AdminPanels"/>
         <activity
             android:name=".UserCategory"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".ProductView" />
         <activity android:name=".UserItemView" />
-        <activity android:name=".AdminMaintainItem" />
-        <activity android:name=".AdminItemsView" />
-        <activity android:name=".AddProduct" />
-        <activity android:name=".AdminCategory" />
+        <activity android:name=".AdminMaintainItem"
+            android:parentActivityName=".AdminViewCategory"/>
+        <activity android:name=".AdminItemsView"
+            android:parentActivityName=".AdminViewCategory"/>
+        <activity android:name=".AddProduct"
+            android:parentActivityName=".AdminCategory"/>
+        <activity android:name=".AdminCategory"
+            android:parentActivityName=".AdminPanels"/>
         <activity android:name=".Admin" />
         <activity android:name=".MainActivity" />
     </application>

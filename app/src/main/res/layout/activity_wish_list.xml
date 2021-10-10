@@ -29,6 +29,15 @@
 
     <!--    </RelativeLayout>-->
 
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="583dp"
+    android:layout_marginTop="81dp">
+
+</ScrollView>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wish_list"
         android:layout_width="match_parent"
@@ -39,6 +48,8 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+
+
     <Button
         android:id="@+id/back_home_btn"
         android:layout_width="match_parent"
@@ -48,7 +59,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/purple_200"
+        android:background="@drawable/add_to_cart"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="20dp" />
@@ -57,13 +68,25 @@
         android:id="@+id/heading"
         android:layout_width="183dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
         android:layout_marginEnd="202dp"
         android:layout_marginBottom="654dp"
-        android:text="WishList"
-        android:textColor="#000000"
+        android:text="Favourites"
+        android:textColor="@color/purple_200"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="176dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-6dp"
+        android:layout_marginBottom="652dp"
+        app:srcCompat="@drawable/lakwimana_logo" />
 
 </RelativeLayout>

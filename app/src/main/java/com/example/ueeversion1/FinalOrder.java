@@ -16,6 +16,8 @@ public class FinalOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_order);
 
+        getSupportActionBar().setTitle("");
+
         btn = findViewById(R.id.homeButtonForOrder);
 
         btn.setOnClickListener(new View.OnClickListener() {

@@ -274,7 +274,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/yas_person_name"
                     android:layout_marginTop="7dp"
-                    android:layout_marginBottom="5dp"
                     android:clickable="false"
                     android:progressTint="#FF5722" />
 

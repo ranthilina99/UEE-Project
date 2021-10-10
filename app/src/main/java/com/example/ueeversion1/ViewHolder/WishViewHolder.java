@@ -16,7 +16,7 @@ public class WishViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public TextView txtProductName, txtProductQuantity, txtProductPrice;
     public ItemClickListner itemClickListner;
     public ImageView removeWish;
-    public ImageView wishImage;
+    public ImageView wishImage,wishTo;
 
     public WishViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -26,6 +26,7 @@ public class WishViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         txtProductPrice = (TextView) itemView.findViewById(R.id.wish_product_price);
         removeWish = (ImageView) itemView.findViewById(R.id.close_wish);
         wishImage = (ImageView) itemView.findViewById(R.id.wish_product_image);
+        wishTo = (ImageView) itemView.findViewById(R.id.wishToPro);
     }
 
     @Override

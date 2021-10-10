@@ -9,8 +9,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="89dp"
+        android:id="@+id/header_profile"
         android:layout_height="70dp"
-        android:src="@drawable/images"
+        android:src="@drawable/sal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
@@ -19,12 +20,12 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="121dp"
+        android:id="@+id/fn"
+        android:layout_width="130dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
-        android:text="Sarani Nimali"
         android:textColor="@color/white"
+        android:text="Kamal Wikum"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,14 +37,14 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sarani@gmail.com"
+        android:text="kamal@gmail.com"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/fn"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView

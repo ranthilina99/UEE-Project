@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ueeversion1.FinalOrder;
 import com.example.ueeversion1.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -124,8 +125,8 @@ public class DeliveryAdd2 extends AppCompatActivity implements OnMapReadyCallbac
         if (TextUtils.isEmpty(t.getText().toString()))
             Toast.makeText(getApplicationContext(), "Empty Address", Toast.LENGTH_SHORT).show();
         else {
-//            Intent intent = new Intent(this, DeliveryAdd2.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, FinalOrder.class);
+            startActivity(intent);
             Toast.makeText(this, "Order Successful", Toast.LENGTH_SHORT).show();
         }
     }

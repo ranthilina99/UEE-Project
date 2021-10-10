@@ -64,7 +64,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="3dp"
-            android:background="@drawable/shape"
+
              />
 
         <TextView
@@ -86,25 +86,25 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="153dp"
-            android:layout_marginTop="61dp"
-            android:text="Qty"
+            android:layout_marginStart="161dp"
+            android:layout_marginTop="60dp"
+            android:text="2"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="23dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/cart_product_price"
-            android:textAlignment="viewEnd"
             android:layout_width="136dp"
-            android:textSize="15dp"
-            android:textColor="@color/black"
             android:layout_height="37dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="246dp"
             android:layout_marginTop="90dp"
-            android:text="Price" />
+            android:text="Price"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/purple_200"
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/close_cart"
@@ -120,8 +120,8 @@
 
         <ImageView
             android:id="@+id/cartEdit1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="126dp"
@@ -130,8 +130,8 @@
 
         <ImageView
             android:id="@+id/cartEdit2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="180dp"

@@ -15,16 +15,26 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminPanels extends AppCompatActivity {
 
-    ImageView adminLogout ;
+    ImageView adminLogout,prof ;
     CardView cardView1,cardView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_panels);
+        getSupportActionBar().setTitle("Admin Panel");
         adminLogout=findViewById(R.id.logout);
         cardView1=findViewById(R.id.card_product_add_admin);
         cardView2=findViewById(R.id.card_admin_view_item);
+        prof = findViewById(R.id.prof);
+
+        prof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminPanels.this,AdminUserList.class);
+                startActivity(intent);
+            }
+        });
 
 
         adminLogout.setOnClickListener(new View.OnClickListener() {
