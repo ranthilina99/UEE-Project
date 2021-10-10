@@ -53,6 +53,8 @@ public class DeliveryAdd2 extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_delivery_add2);
 
 
+        getSupportActionBar().setTitle("Delivery");
+
         SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.yas_frag1Map);
 

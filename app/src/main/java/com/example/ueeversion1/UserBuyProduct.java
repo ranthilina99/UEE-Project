@@ -185,7 +185,7 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),UserItemView.class));
+                startActivity(new Intent(getApplicationContext(),UserCategory.class));
             }
         });
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
@@ -221,7 +221,7 @@ public class UserBuyProduct extends AppCompatActivity  implements AdapterView.On
         }
 
         rating.setRating(total/count);
-        ratingText.setText(( (total/count)) + ".0");
+        ratingText.setText(( (total/count)) + "");
     }
 
     private void addingToCartList() {

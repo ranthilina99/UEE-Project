@@ -204,7 +204,7 @@ public class ProductView extends AppCompatActivity  implements AdapterView.OnIte
         }
 
         rating.setRating(total/count);
-        ratingText.setText(( (total/count)) + ".0");
+        ratingText.setText(( (total/count)) + "");
     }
 
     private void addingToWishList() {

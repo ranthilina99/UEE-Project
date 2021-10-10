@@ -7,6 +7,7 @@ public class Review {
     private String review;
     private int rating;
 
+
     public int getRating() {
         return rating;
     }

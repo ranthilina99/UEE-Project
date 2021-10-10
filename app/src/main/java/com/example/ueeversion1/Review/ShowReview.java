@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 
@@ -24,7 +25,9 @@ import android.widget.Toast;
 import com.example.ueeversion1.Review.ReviewPopupAdd;
 import com.example.ueeversion1.Review.ReviewPopupUpdate;
 import com.example.ueeversion1.YasojaRecyclerViewAdapter;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +39,15 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import com.example.ueeversion1.R;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 public class ShowReview extends AppCompatActivity implements View.OnClickListener{
 
@@ -49,6 +60,13 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
     float total = (float) 0.0;
     Button b;
     Bundle extras;
+
+
+
+    FirebaseAuth FAuthYas;
+    FirebaseFirestore FStoreYas;
+    String name = "";
+
 
     Boolean exists = false;
 
@@ -65,6 +83,7 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_review);
 
+        getSupportActionBar().setTitle("Review");
         image1 = findViewById(R.id.yas_select_product_image);
         item = findViewById(R.id.yas_textView5);
         t = findViewById(R.id.yas_textView4);
@@ -80,7 +99,21 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
 
         pID = getIntent().getStringExtra("pID");
 
-        uID = "U01";
+//        FAuthYas = FirebaseAuth.getInstance();
+//        FStoreYas = FirebaseFirestore.getInstance();
+////        userYas = FAuthYas.getCurrentUser();
+//        String userIds;
+//        String userID = FAuthYas.getCurrentUser().getUid();
+//        final DocumentReference documentReference = FStoreYas.collection("Users").document(userID);
+//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                uID = value.getString("FirstName");
+//            }
+//        });
+
+
+        uID = "Kamal";
 
         ///
         itemRef = FirebaseDatabase.getInstance().getReference().child("Products").child(pID);
@@ -132,8 +165,8 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        isHere();
 
+        isHere();
         initImageBitmaps();
 
 
@@ -149,6 +182,10 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
 //    }
 
     private void initImageBitmaps() {
+
+
+
+
         dbRef = FirebaseDatabase.getInstance().getReference();
         Query showQuery = dbRef.child("Review").orderByChild("productID").equalTo(pID);
 
@@ -158,7 +195,7 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot showSnapshot: dataSnapshot.getChildren()) {
                     Log.d(TAG, "initImageBitmaps: started");
-                    mImageUrls.add("https://www.howtogeek.com/wp-content/uploads/2020/03/delivery-food.jpg.pagespeed.ce.8e-lIOJeD5.jpg");
+                    mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/ueeproject-b75f7.appspot.com/o/users%2FjndtL369TCXQ4buVAs5KpH44K352%2Fprofile.jpg?alt=media&token=c8e6959f-a684-4b03-b3da-4e1733cc6253");
                     mNames.add(showSnapshot.child("userID").getValue().toString());
                     mNames2.add(showSnapshot.child("review").getValue().toString());
                     mRating.add(Float.parseFloat(showSnapshot.child("rating").getValue().toString()));
@@ -196,7 +233,7 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
         System.out.println("Total:" + total);
 
         r.setRating(total/count);
-        t.setText(( (total/count)) + ".0");
+        t.setText(( (total/count)) + "");
     }
 
     @Override
@@ -209,25 +246,39 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    public void number(){
+        if(count == 0){
+
+        }
+    }
+
 
     public void Submit2() {
+
+
+
 
         extras = new Bundle();
         extras.putString("PRODUCT_ID", pID);
         extras.putString("USER_ID", uID);
 
+
+
         Intent intent;
         if(exists) {
             intent = new Intent(this, ReviewPopupUpdate.class);
             intent.putExtras(extras);
+            startActivity(intent);
 
+        }else {
 
-        }else{
             intent = new Intent(this, ReviewPopupAdd.class);
             intent.putExtras(extras);
+            startActivity(intent);
 
         }
-        startActivity(intent);
+
+
 
 
     }
@@ -236,6 +287,8 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
 
         dbRef = FirebaseDatabase.getInstance().getReference();
         Query checkQuery = dbRef.child("Review").orderByChild("userID").equalTo(uID);
+
+
 
         checkQuery.addListenerForSingleValueEvent(new ValueEventListener() {
 

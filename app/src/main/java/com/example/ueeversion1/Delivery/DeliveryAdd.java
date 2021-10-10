@@ -24,6 +24,7 @@ public class DeliveryAdd extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_add);
 
+        getSupportActionBar().setTitle("Delivery");
         t = findViewById(R.id.yas_editTextTextPersonName2);
         t2 = findViewById(R.id.yas_editTextTextPersonName6);
         t3 = findViewById(R.id.yas_editTextTextPersonName5);

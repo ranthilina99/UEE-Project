@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.ueeversion1.Delivery.DeliveryAdd;
+import com.example.ueeversion1.MainActivity;
 import com.example.ueeversion1.Model.Review;
 import com.example.ueeversion1.ProductView;
 import com.example.ueeversion1.R;
@@ -124,7 +125,7 @@ public class ReviewPopupUpdate extends AppCompatActivity implements View.OnClick
                         updateSnapshot.getRef().updateChildren(updateMap);
                         Toast.makeText(getApplicationContext(), "Successfully Updated", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(getApplicationContext(), ProductView.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }
                 }
             }

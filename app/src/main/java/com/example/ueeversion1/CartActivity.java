@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ueeversion1.Delivery.DeliveryAdd;
 import com.example.ueeversion1.Model.Cart;
 import com.example.ueeversion1.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -52,6 +53,15 @@ public class CartActivity extends AppCompatActivity {
 
         close_wish = findViewById(R.id.close_cart);
         edit1 = findViewById(R.id.cartEdit1);
+
+        NextProcessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DeliveryAdd.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ueeversion1">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,14 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ueeversion1">
+        <activity android:name=".FinalOrder"></activity>
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_key"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
 
-        <activity android:name=".Review.ReviewPopupUpdate"
-            android:theme="@style/AppTheme.ReviewPopup"/>
-        <activity android:name=".Review.ReviewPopupAdd"
-            android:theme="@style/AppTheme.ReviewPopup"/>
+        <activity
+            android:name=".Review.ReviewPopupUpdate"
+            android:theme="@style/AppTheme.ReviewPopup" />
+        <activity
+            android:name=".Review.ReviewPopupAdd"
+            android:theme="@style/AppTheme.ReviewPopup" />
         <activity android:name=".Review.ShowReview" />
         <activity android:name=".Delivery.DeliveryAdd2" />
         <activity android:name=".Delivery.DeliveryAdd" />

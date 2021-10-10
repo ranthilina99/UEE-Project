@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.example.ueeversion1.MainActivity;
 import com.example.ueeversion1.Model.Review;
 import com.example.ueeversion1.ProductView;
 import com.example.ueeversion1.R;
@@ -115,7 +116,7 @@ public class ReviewPopupAdd extends AppCompatActivity implements View.OnClickLis
                 dbRef.push().setValue(review);
                 Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(getApplicationContext(), ProductView.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
 
             }
