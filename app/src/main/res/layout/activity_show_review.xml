@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/yas_back_view"
+                android:id="@+id/yas_back_viewReview"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"

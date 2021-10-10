@@ -125,7 +125,9 @@ public class ReviewPopupUpdate extends AppCompatActivity implements View.OnClick
                         updateSnapshot.getRef().updateChildren(updateMap);
                         Toast.makeText(getApplicationContext(), "Successfully Updated", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent intent = new Intent(getApplicationContext(),ProductView.class);
+                        intent.putExtra("pid",pID);
+                        startActivity(intent);
                     }
                 }
             }

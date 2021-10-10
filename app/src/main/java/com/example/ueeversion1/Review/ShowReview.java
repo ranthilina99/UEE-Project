@@ -22,6 +22,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ueeversion1.CartActivity;
+import com.example.ueeversion1.MainActivity;
 import com.example.ueeversion1.Review.ReviewPopupAdd;
 import com.example.ueeversion1.Review.ReviewPopupUpdate;
 import com.example.ueeversion1.YasojaRecyclerViewAdapter;
@@ -61,7 +63,7 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
     Button b;
     Bundle extras;
 
-
+    ImageView back;
 
     FirebaseAuth FAuthYas;
     FirebaseFirestore FStoreYas;
@@ -87,6 +89,15 @@ public class ShowReview extends AppCompatActivity implements View.OnClickListene
         image1 = findViewById(R.id.yas_select_product_image);
         item = findViewById(R.id.yas_textView5);
         t = findViewById(R.id.yas_textView4);
+
+        back = findViewById(R.id.yas_back_viewReview);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
 
         r = (RatingBar)findViewById(R.id.yas_ratingBar5);
         LayerDrawable stars = (LayerDrawable) r.getProgressDrawable();

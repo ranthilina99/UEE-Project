@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ueeversion1.FinalOrder;
@@ -46,12 +48,22 @@ public class DeliveryAdd2 extends AppCompatActivity implements OnMapReadyCallbac
     String text;
 
     EditText t;
+    ImageView back;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_add2);
+
+        back = findViewById(R.id.yas_back_viewDeilivery);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),DeliveryAdd.class));
+            }
+        });
 
 
         getSupportActionBar().setTitle("Delivery");

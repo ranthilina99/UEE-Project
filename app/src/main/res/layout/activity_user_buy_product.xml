@@ -251,7 +251,7 @@
             android:id="@+id/layer15"
             android:layout_below="@+id/layer55"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 <!--            <RatingBar-->

@@ -8,9 +8,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ueeversion1.CartActivity;
 import com.example.ueeversion1.R;
 
 
@@ -18,6 +20,7 @@ public class DeliveryAdd extends AppCompatActivity implements View.OnClickListen
 
     EditText t,t2,t3;
     Button b;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,15 @@ public class DeliveryAdd extends AppCompatActivity implements View.OnClickListen
         t = findViewById(R.id.yas_editTextTextPersonName2);
         t2 = findViewById(R.id.yas_editTextTextPersonName6);
         t3 = findViewById(R.id.yas_editTextTextPersonName5);
+
+        back = findViewById(R.id.yas_back_viewDeilivery3III);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CartActivity.class));
+            }
+        });
 
     }
 
